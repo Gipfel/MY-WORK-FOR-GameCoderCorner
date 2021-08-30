@@ -1,0 +1,123 @@
+/** Defaults **/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    scroll-behavior: smooth;
+}
+/** End of Defaults **/
+
+/** SECTIONS **/
+section {
+    height: 100vh;
+    max-width: 100vw;
+    background-color: rgb(22, 22, 22);
+}
+#home {
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#test2 {
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/** SECTIONS END **/
+
+
+/** STYLING - STARTPAGE **/
+.cs-text {
+    cursor: default;
+}
+.cs-text > span {
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.cs-text-cut {
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
+}
+.cs-text-cut span {
+    display: block;
+    line-height: 180px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 180px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 7px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 7px 2px 0 rgba(255, 255, 255, 0.3);
+}
+.cs-text-cut:last-child span {
+    margin-top: -84px;
+}
+.cs-text-mid {
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 70px;
+    letter-spacing: 73px;
+    line-height: 50px;
+    text-indent: 20px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease-in-out 0s;
+    width: 1050px;
+}
+.cs-text:hover .cs-text-cut:first-child {
+    transform: translateY(-33px);
+    opacity: 0.7;
+
+}
+.cs-text:hover .cs-text-cut:last-child {
+    transform: translateY(33px);
+    opacity: 0.7;
+
+}
+.cs-text:hover .cs-text-mid {
+    transition-delay: 0.3s;
+    transform: scale(1);
+    opacity: 1;
+    width: 1050px;
+}
+/** END OF STYLING - STARTPAGE **/
+
+/** CUSTOM SCROLL BAR **/
+::-webkit-scrollbar {
+    width: 7px;
+    background: rgb(22, 22, 22);;
+}
+::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(72, 61, 219);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(48, 33, 255);
+    transition: 0.4s ease-in-out;
+}
+/** CUSTOM SCROLL BAR END **/
