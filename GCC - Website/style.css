@@ -27,7 +27,6 @@ section {
     background-image: url(background.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 #test2 {
     background-image: url(background.jpg);
