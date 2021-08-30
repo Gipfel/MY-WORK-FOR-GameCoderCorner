@@ -62,14 +62,15 @@
 
         range.oninput = (e) =>
             updateSlider(e.target.value)
+            
 
         updateSlider(50); // Init value
-        
+
 
         var music = new Audio('music.mp3');
         window.onload = function exampleFunction() {
             music.play();
-            music.volume = 0.02;
+            music.volume = 0.005;
         }
 
         let pause = document.querySelector(".pausierenalda");
@@ -163,7 +164,7 @@
 
         .track {
             width: 94%;
-            height: 10px;
+            height: 13px;
             background: #000000;
             pointer-events: none;
             transform: translate(15px, 1px);
@@ -183,7 +184,7 @@
             background: #000000;
             border-radius: 50%;
             pointer-events: none;
-            transform: translate(15px, 1px);
+            transform: translate(0, -10px)
         }
 
 
@@ -228,6 +229,7 @@
         .loading-container h3 {
             font-size: 42px;
             display: inline-block;
+            text-shadow: 2px 2px 2px black;
         }
 
         .loadbar {
@@ -256,6 +258,7 @@
             font-size: 60px;
             text-align: center;
             height: 78px;
+            text-shadow: 2px 2px 2px black;
         }
 
         .heading-pos {
@@ -275,6 +278,7 @@
             background: #fff;
             border-radius: 30px;
             border-radius: 50%;
+            box-shadow: 4px 1px 13px black;
         }
 
         .loading-container {
