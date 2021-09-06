@@ -24,6 +24,10 @@
     <!------------------------------------------->
     <!------------------------------------------->
 
+    <video autoplay muted loop id="bgvideo">
+        <source src="Wallpaper.mp4" type="video/mp4">
+    </video>
+
     <div class="full-container">
         <div class="heading-pos">
             <div class="heading">
@@ -135,6 +139,14 @@
         });
     </script>
     <style>
+        #bgvideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
         .controls {
             display: flex;
             align-items: center;
@@ -193,9 +205,6 @@
             height: 100vh;
             width: 100vw;
             display: flex;
-            background-image: url("https://wallpapers-hub.art/wallpaper-images/707055.jpg");
-            background-position: center;
-            background-size: cover;
         }
 
         h2 {
@@ -244,6 +253,7 @@
         .full-container {
             height: 100%;
             width: 100%;
+            z-index: 100;
         }
 
         .heading h4 {
