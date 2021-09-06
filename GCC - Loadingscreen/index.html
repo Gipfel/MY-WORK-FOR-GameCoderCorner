@@ -49,6 +49,10 @@
                             <i class="fas fa-pause pausierenalda"></i>
                             <i class="fas fa-play playmeidiot hidden"></i>
                         </div>
+                        <div>
+                            <i class="fas fa-volume-up volume-icon"></i>
+                            <i class="fas fa-volume-mute volume-icon-muted hidden"></i>
+                        </div>
                         <div class="slider">
                             <div class="wrap">
                                 <input type="range" class="range" min="0" max="100" step="0.1" value="50">
@@ -81,13 +85,19 @@
 
         updateSlider(50); // Init value
         var music = new Audio('music.mp3');
-        window.onload = function exampleFunction() {
+        window.onload = () => {
             music.play();
             music.volume = 0.005;
             music.loop = true;
         }
         let pause = document.querySelector(".pausierenalda");
         let play = document.querySelector(".playmeidiot");
+        let volumeMute = document.querySelector(".volume-icon");
+        let volumePlay = document.querySelector(".volume-icon-muted");
+
+        let lastSliderWidth = document.querySelector('.track-inner').style.width;
+        let lastVolume = music.volume;
+
         pause.onclick = () => {
             play.classList.toggle("hidden");
             pause.classList.toggle("hidden");
@@ -98,8 +108,27 @@
             pause.classList.toggle("hidden");
             music.play();
         }
+        volumeMute.onclick = () => {
+            lastSliderWidth = document.querySelector('.track-inner').style.width;
+            lastVolume = music.volume;
+            volumeMute.classList.toggle("hidden");
+            volumePlay.classList.toggle("hidden");
+            music.volume = 0;
+            range.value = 0;
+            document.querySelector('.track-inner').style.width = '0%';
+        }
+        volumePlay.onclick = () => {
+            music.volume = lastVolume;
+            document.querySelector('.track-inner').style.width = lastSliderWidth;
+            volumeMute.classList.toggle("hidden");
+            volumePlay.classList.toggle("hidden");
+        }
         setVolume = () => {
             music.volume = range.value / 10000;
+            if (music.volume > 0) {
+                volumeMute.classList.remove("hidden");
+                volumePlay.classList.add("hidden");
+            }
         }
         range.addEventListener("mousemove", setVolume);
         var count = 0;
@@ -145,11 +174,18 @@
             bottom: 0;
             min-width: 100%;
             min-height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .controls {
             display: flex;
             align-items: center;
+        }
+
+        .volume-icon {
+            font-size: 30px;
+            margin-left: 15px;
         }
 
         .slider {
@@ -184,12 +220,12 @@
 
         .thumb {
             opacity: 0;
-            width: 16px;
+            width: 20px;
             height: 16px;
             background: #000000;
             border-radius: 50%;
             pointer-events: none;
-            transform: translate(0, -10px)
+            transform: translate(2px, -14px);
         }
 
         * {
@@ -253,7 +289,6 @@
         .full-container {
             height: 100%;
             width: 100%;
-            z-index: 100;
         }
 
         .heading h4 {
@@ -272,6 +307,7 @@
 
         .heading {
             width: 576px;
+            z-index: 1;
         }
 
         .line {
@@ -312,6 +348,14 @@
             cursor: pointer;
         }
 
+        .volume-icon:hover {
+            cursor: pointer;
+        }
+
+        .volume-icon-muted:hover {
+            cursor: pointer;
+        }
+
         .pausierenalda {
             font-size: 30px;
             margin-left: 15px;
@@ -319,6 +363,11 @@
 
         .playmeidiot {
             font-size: 30px;
+            margin-left: 15px;
+        }
+
+        .volume-icon-muted {
+            font-size: 34px;
             margin-left: 15px;
         }
 
